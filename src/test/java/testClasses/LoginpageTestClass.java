@@ -1,5 +1,7 @@
 package testClasses;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 
 import org.testng.Assert;
@@ -14,7 +16,7 @@ import utilities.ExcelReadUtility;
 
 public class LoginpageTestClass extends BaseClass {
 	
-	@Test
+	@Test (groups = {"group1"})
 	public void verifySuccessfullLogin() throws IOException {
 		LoginpageClass lp = new LoginpageClass(driver);
 		HomepageClass hp = lp.validLogin(ExcelReadUtility.getStringData(0, 0,"loginPage"),ExcelReadUtility.getIntegerData(0, 1,"loginPage"));
@@ -25,7 +27,7 @@ public class LoginpageTestClass extends BaseClass {
 
 	}
 
-	@Test(dataProviderClass = DataProviderClass.class,dataProvider = "unsuccessfullLogin")
+	@Test(dataProviderClass = DataProviderClass.class,dataProvider = "unsuccessfullLogin",groups = {"group1"})
 	public void verifyUnsuccessfullLogin(String uname,String pass) {
 		LoginpageClass lp = new LoginpageClass(driver);
 		lp = lp.invalidLogin(uname,pass);
@@ -35,13 +37,13 @@ public class LoginpageTestClass extends BaseClass {
 		Assert.assertTrue(actualResult.contains(expectedResult));
 
 	}
-	@Test
+	@Test  
 	public void verifyUsernameTextboxShowingHintorNot() {
 		LoginpageClass lp = new LoginpageClass(driver);
 		Boolean actualResult=lp.getPlaceholderattributeofUsername("placeholder").isEmpty();
 		Assert.assertEquals(actualResult,true);
 	}
-	@Test
+	@Test (groups = {"group2"})
 	public void  verifyCorrectApplicationisLaunchingWhileHitingURL() {
 		LoginpageClass lp = new LoginpageClass(driver);
 		String actualResult=lp.getTextofLoginPage();
@@ -49,7 +51,7 @@ public class LoginpageTestClass extends BaseClass {
 		Assert.assertEquals(actualResult, expectedResult);
 		
 	}
-	@Test
+	@Test (groups = {"group2"})
 	public void verifyRemembermeCheckBoxisUncheckedByDefault() {
 		LoginpageClass lp = new LoginpageClass(driver);
 		Boolean actualResult=lp.rememberMeCheckBox();

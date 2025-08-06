@@ -1,0 +1,29 @@
+<suite name="Suite">
+	<listeners>
+		<listener class-name="listeners.RetryListener" />
+		<listener class-name="listeners.TestListener" />
+
+
+	</listeners>
+	<test thread-count="5" name="Test">
+<parameter name="Browser" value="Chrome"></parameter>
+		<groups>
+			<run>
+
+				<include name="tearUp"></include>
+				<exclude name="group1"></exclude>
+				<include name="group2"></include>
+				<include name="tearDown"></include>
+			</run>
+		</groups>
+		<classes>
+			<class name="testClasses.LoginpageTestClass" />
+			 <class name="testClasses.HomepageTestClass"/>
+			<!-- <class name="testClasses.userTestClass"/>
+     
+      <class name="testClasses.AddUserTestClass"/>
+      <class name="testClasses.SupplierTestClass"/>-->
+		</classes>
+	</test>
+</suite>
+<!-- Suite -->

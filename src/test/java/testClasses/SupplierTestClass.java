@@ -1,5 +1,7 @@
 package testClasses;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 
 import org.testng.Assert;
@@ -24,7 +26,7 @@ public class SupplierTestClass extends BaseClass {
 		SupplierInfoClass spi= sp.clickOnViewOption();
 	    String actualResult="View Contact";
 	    String expectedResult=spi.getTextofSupplierContactPageHeading();
-	    Assert.assertEquals(actualResult, expectedResult);
+	    AssertJUnit.assertEquals(actualResult, expectedResult);
   }
   @Test 
   public void verifyUserIsAbletoSerachForaSupplier() throws IOException {
@@ -35,6 +37,6 @@ public class SupplierTestClass extends BaseClass {
 		hp.clickOnContacts();
 		SuppliersPageClass sp =hp.clickOnSuppliers();
 		boolean serchResult=sp.searchForUser("Ansalna");
-	    Assert.assertTrue(serchResult);
+	    AssertJUnit.assertTrue(serchResult);
   }
 }

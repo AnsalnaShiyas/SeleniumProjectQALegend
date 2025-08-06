@@ -1,0 +1,34 @@
+<suite name="crossbrowserTestSuite">
+<listeners>
+<listener class-name="listeners.RetryListener"/>
+<listener class-name="listeners.TestListener"/>
+</listeners>
+
+  <test name="ChromeTest">
+  <parameter name="Browser" value="Chrome"></parameter>
+    <classes>
+    <class name="testClasses.HomepageTestClass"/>
+ 
+      <!-- <class name="testClasses.userTestClass"/>
+           <class name="testClasses.LoginpageTestClass"/>
+      <class name="testClasses.AddUserTestClass"/>
+      <class name="testClasses.SupplierTestClass"/>-->
+    </classes>
+  </test> 
+  
+  
+  <test name="FirefoxTest">
+  <parameter name="Browser" value="Firefox"></parameter>
+    <classes>
+    <class name="testClasses.HomepageTestClass"/>
+      
+      <!-- <class name="testClasses.userTestClass"/>
+      <class name="testClasses.LoginpageTestClass"/>
+      <class name="testClasses.AddUserTestClass"/>
+      <class name="testClasses.SupplierTestClass"/>-->
+    </classes>
+  </test>
+  
+  
+</suite>
+ <!-- Suite -->

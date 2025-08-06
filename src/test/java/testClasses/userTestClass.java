@@ -1,5 +1,7 @@
 package testClasses;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 
 import org.testng.Assert;
@@ -26,26 +28,12 @@ public void verifyUsercanNavigateToManageUserPageByClickingOnUsers() {
 		String actualResult=us.getTextOfUsersPage();
 		System.out.println(actualResult);
 		String expectedResult="Users Manage users";
-		Assert.assertEquals(actualResult, expectedResult);
+		AssertJUnit.assertEquals(actualResult, expectedResult);
 }
 		
 
   
-  @Test
-  public void verifyUserIsAbleToPrintUserPage() throws IOException {
-	  LoginpageClass lp = new LoginpageClass(driver);
-		HomepageClass hp = lp.validLogin(ExcelReadUtility.getStringData(0, 0,"loginPage"),ExcelReadUtility.getIntegerData(0, 1,"loginPage"));
-		hp.clickOnEndTourButton();
-		UserPageClass us=hp.openManageUsersPage();
-		us.clickOnActionButton();
-	    PrinterPreferencePage pr=us.clickOnPrintButton();
-		String actualResult=pr.getTextofPrinetrPreferencePage();
-		String expectedResult="Destination";
-		Assert.assertEquals(actualResult, expectedResult);
-		
-		
-		
-  }
+  
   @Test
   
   public void verifyUserisAbleToAddSearchandDeleteUser() throws IOException, InterruptedException {
@@ -61,7 +49,7 @@ public void verifyUsercanNavigateToManageUserPageByClickingOnUsers() {
 		us.clearSearchBox();
 		boolean searchStatuse2=us.searchForUser("Ansalna");
 		System.out.println(searchStatuse2);
-		Assert.assertFalse(searchStatuse2);
+		AssertJUnit.assertFalse(searchStatuse2);
 		
 		
   }

@@ -1,0 +1,21 @@
+
+<suite name="Suite">
+<listeners>
+<listener class-name="listeners.RetryListener"/>
+<listener class-name="listeners.TestListener"/>
+
+
+
+</listeners>
+  <test thread-count="5" name="Test">
+  <parameter name="Browser" value="Chrome"></parameter>
+    <classes>
+      <class name="testClasses.LoginpageTestClass"/>
+      <!-- <class name="testClasses.userTestClass"/>
+      <class name="testClasses.HomepageTestClass"/>
+      <class name="testClasses.AddUserTestClass"/>
+      <class name="testClasses.SupplierTestClass"/>-->
+    </classes>
+  </test> 
+</suite>
+ <!-- Suite -->

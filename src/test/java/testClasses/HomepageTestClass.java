@@ -1,5 +1,7 @@
 package testClasses;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 
 import org.testng.Assert;
@@ -11,7 +13,7 @@ import pageClasses.LoginpageClass;
 import utilities.ExcelReadUtility;
 
 public class HomepageTestClass extends BaseClass {
-  @Test
+  @Test (groups = {"group1"})
   public void verifyTooltipOfCalculatorIcon() throws IOException {
 	  
 	    LoginpageClass lp = new LoginpageClass(driver);
